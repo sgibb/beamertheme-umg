@@ -1,0 +1,57 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage[utf8x]{inputenc}
+
+\usetheme{UMG}
+
+\usepackage{blindtext}
+
+\title[Bsp. beamertheme UMG]{Beispieltitel f\"ur \LaTeX-beamer Vorlage UMG}
+\subtitle{Beispieluntertitel}
+\author{Sebastian Gibb}
+\institute[KA, UMG]{Klinik für Anästhesiologie -- Universitätsmedizin Greifswald}
+\date[17.11.2015]{17. November 2015}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Inhalt}
+  \tableofcontents
+\end{frame}
+
+\section{Einf\"uhrung}
+\begin{frame}{Einf\"uhrung}
+  \blindlistlist[3]{itemize}[3]
+\end{frame}
+
+\section{Details}
+\subsection{Details I}
+\begin{frame}{Details}{Details I}
+
+  \begin{block}{block}
+    \blindlist{itemize}[1]
+  \end{block}
+
+  \begin{example}
+    \blindlist{itemize}[2]
+  \end{example}
+
+  \begin{alertblock}{alertblock}
+    \blindlist{itemize}[2]
+  \end{alertblock}
+
+\end{frame}
+
+\section{Resultate}
+\begin{frame}{Resultate}
+
+  \begin{block}{Liste mit Resultate}
+    \blindlist{itemize}[3]
+  \end{block}
+
+\end{frame}
+
+\end{document}

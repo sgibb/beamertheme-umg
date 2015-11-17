@@ -1,0 +1,117 @@
+% Copyright 2015 by Sebastian Gibb <mail@sebastiangibb.de>
+% License: GPLv3
+%
+% based on: Corporate Design der Universitätsmedizin Greifswald 2015
+%
+\ProvidesPackage{beamerthemeUMG}[2015/11/17 1.0 beamer theme for Universitiy Medicine Greifswald]
+
+\PassOptionsToClass{hyperref={bookmarks,colorlinks}}{beamer}
+\ProcessOptionsBeamer
+
+\RequirePackage{graphicx}
+
+% don't show navigation bar
+\setbeamertemplate{navigation symbols}{}
+
+
+% no sidebar
+\setbeamertemplate*{sidebar left}{}
+\setbeamertemplate*{sidebar right}{}
+
+
+% colors
+\definecolor{umgOrange}{HTML}{E59100}
+\definecolor{umgBlue}{HTML}{005191}
+\definecolor{umgGrey}{HTML}{8B8B8B}
+
+\setbeamercolor*{title}{fg=umgBlue,bg=white}
+\setbeamercolor*{subtitle}{fg=umgOrange,bg=white}
+\setbeamercolor*{frametitle}{fg=umgOrange,bg=white}
+\setbeamercolor*{date}{fg=umgGrey,bg=white}
+\setbeamercolor*{item}{fg=umgBlue,bg=white}
+\setbeamercolor*{normal text}{fg=umgBlue,bg=white}
+\setbeamercolor*{alerted text}{fg=umgOrange,bg=white}
+\setbeamercolor*{footline}{fg=umgBlue,bg=white}
+\setbeamercolor*{structure}{fg=umgBlue}
+\setbeamercolor*{palette primary}{use=structure,fg=structure.fg,bg=}
+\setbeamercolor*{palette secondary}{fg=umgBlue,bg=}
+\setbeamercolor*{separation line}{fg=umgBlue}
+\setbeamercolor*{example text}{fg=umgBlue,bg=}
+\setbeamercolor*{block title}{use=alerted text,fg=alerted text.fg,bg=alerted text.fg!20!bg}
+\setbeamercolor*{block title alerted}{use=alerted text,fg=alerted text.fg,bg=alerted text.fg!20!bg}
+\setbeamercolor*{block title example}{use=example text,fg=example text.fg,bg=example text.fg!20!bg}
+\setbeamercolor*{block body}{parent=normal text,use=block title alerted,bg=block title alerted.bg!50!bg}
+\setbeamercolor*{block body alerted}{parent=normal text,use=block title,bg=block title.bg!50!bg}
+\setbeamercolor*{block body example}{parent=normal text,use=block title example,bg=block title example.bg!50!bg}
+
+\setbeamercolor*{titlelike}{parent=structure}
+
+
+% font settings
+\usefonttheme{professionalfonts}
+
+\setbeamerfont{tiny structure}{size=\tiny,series=\mdseries}
+\setbeamerfont{title}{size=\Large,series=\mdseries}
+\setbeamerfont{subtitle}{size=\large,series=\mdseries}
+\setbeamerfont*{author}{size=\normalsize,series=\bfseries}
+\setbeamerfont{frametitle}{size=\Large,series=\mdseries}
+\setbeamerfont{framesubtitle}{size=\large,series=\mdseries}
+\setbeamerfont*{footline}{size=\tiny}
+\setbeamerfont*{date}{size=\tiny}
+
+
+% outer theme
+\setbeamersize{text margin left=1cm}
+
+\newcommand{\umgLogoLarge}{\includegraphics[width=0.4\paperwidth]{umg.jpg}}
+\newcommand{\umgLogoSmall}{\includegraphics[width=0.075\paperwidth]{umg2.png}}
+
+\setbeamertemplate{title page}
+{
+	\begin{minipage}[t][\paperheight]{\textwidth}
+    \begin{beamercolorbox}[wd=\paperwidth, sep=2mm]{logoBox}
+    \hfill \umgLogoLarge
+    \end{beamercolorbox}
+
+    \begin{beamercolorbox}[wd=\paperwidth,ht=10em]{title page}
+      \begin{center}
+      {\usebeamerfont{title}\inserttitle\par}
+      \vspace*{2em}
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertauthor\par}
+      \end{center}
+    \end{beamercolorbox}
+	\end{minipage}
+}
+
+\setbeamertemplate{frametitle}{
+  \begin{beamercolorbox}[wd=\paperwidth, sep=0mm, leftskip=2mm]{titleBar}
+  \vskip2mm
+  \insertframetitle
+  \ifx\insertframesubtitle\@empty\else\\\usebeamerfont{framesubtitle}\hspace{2mm}\insertframesubtitle \fi
+  \end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}
+{
+  \ifnum\c@framenumber=1
+  \else
+  \hbox{
+  \begin{beamercolorbox}[wd=0.08\paperwidth, ht=3.5mm, leftskip=2mm
+    ]{framenumber}
+    \insertframenumber
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=0.92\paperwidth, ht=3.5mm, rightskip=2mm]{footlinebar}
+    {\usebeamercolor[fg]{date}\insertdate \hskip2em}
+    \insertshorttitle, \insertshortauthor, \insertshortinstitute
+    \hfill
+    \umgLogoSmall
+  \end{beamercolorbox}
+  }
+  \vskip1mm
+  \fi
+}
+
+% inner theme
+\setbeamertemplate{items}[circle]
+
+\endinput

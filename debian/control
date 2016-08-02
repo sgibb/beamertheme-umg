@@ -1,0 +1,17 @@
+Source: latex-beamer-theme-umg
+Section: tex
+Priority: optional
+Maintainer: Sebastian Gibb <sgibb.debian@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), tex-common
+Standards-Version: 3.9.8
+Homepage: https://www2.medizin.uni-greifswald.de/
+
+Package: latex-beamer-theme-umg
+Architecture: all
+Depends: ${misc:Depends}, latex-beamer
+Description: Unofficial LaTex beamer theme of the University Medicine Greifswald
+ This theme roughly follows the official corporated design of the University
+ Medicine Greifswald. It is based on the template file
+ Praesentationsvorlage_UMG.pptx available in the intranet
+ (at the 17th Nov 2015).
+

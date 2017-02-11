@@ -1,14 +1,15 @@
-% Copyright 2015 by Sebastian Gibb <mail@sebastiangibb.de>
+% Copyright 2015-2017 by Sebastian Gibb <mail@sebastiangibb.de>
 % License: GPLv3
 %
 % based on: Corporate Design der Universitätsmedizin Greifswald 2015
 %
-\ProvidesPackage{beamerthemeUMG}[2015/11/17 1.0 beamer theme for Universitiy Medicine Greifswald]
+\ProvidesPackage{beamerthemeUMG}[2017/02/12 1.1 beamer theme for Universitiy Medicine Greifswald]
 
 \PassOptionsToClass{hyperref={bookmarks,colorlinks}}{beamer}
 \ProcessOptionsBeamer
 
 \RequirePackage{graphicx}
+
 
 % don't show navigation bar
 \setbeamertemplate{navigation symbols}{}
@@ -23,10 +24,12 @@
 \definecolor{umgOrange}{HTML}{E59100}
 \definecolor{umgBlue}{HTML}{005191}
 \definecolor{umgGrey}{HTML}{8B8B8B}
+\definecolor{umgGrey2}{HTML}{8B97B5}
 
 \setbeamercolor*{title}{fg=umgBlue,bg=white}
 \setbeamercolor*{subtitle}{fg=umgOrange,bg=white}
 \setbeamercolor*{frametitle}{fg=umgOrange,bg=white}
+\setbeamercolor*{framenumber}{fg=umgGrey2,bg=white}
 \setbeamercolor*{date}{fg=umgGrey,bg=white}
 \setbeamercolor*{item}{fg=umgBlue,bg=white}
 \setbeamercolor*{normal text}{fg=umgBlue,bg=white}
@@ -62,53 +65,51 @@
 
 
 % outer theme
-\setbeamersize{text margin left=1cm}
+\setbeamersize{text margin left=8mm}
 
-\newcommand{\umgLogoLarge}{\includegraphics[width=0.4\paperwidth]{umg.jpg}}
-\newcommand{\umgLogoSmall}{\includegraphics[width=0.075\paperwidth]{umg2.png}}
+\pgfdeclareimage[width=10cm]{seal}{seal.png}
+\pgfdeclareimage[width=5.7cm]{logo}{umg_without_seal.jpg}
 
-\setbeamertemplate{title page}
-{
-	\begin{minipage}[t][\paperheight]{\textwidth}
-    \begin{beamercolorbox}[wd=\paperwidth, sep=2mm]{logoBox}
-    \hfill \umgLogoLarge
-    \end{beamercolorbox}
+\setbeamertemplate{title page}{
+  \begin{picture}(0,0)
+    \put(-130,-188){%
+      \pgfuseimage{seal}
+    }
 
-    \begin{beamercolorbox}[wd=\paperwidth,ht=10em]{title page}
-      \begin{center}
-      {\usebeamerfont{title}\inserttitle\par}
-      \vspace*{2em}
-      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertauthor\par}
-      \end{center}
-    \end{beamercolorbox}
-	\end{minipage}
+    \put(165,48){%
+      \pgfuseimage{logo}
+    }
+
+     \put(165,-38){%
+       \begin{minipage}[t]{0.5\textwidth}
+        \raggedright
+       {\usebeamerfont{title}\inserttitle\par}
+       \vspace*{2em}
+       {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertauthor\par}
+       \end{minipage}
+     }
+
+  \end{picture}
 }
 
 \setbeamertemplate{frametitle}{
-  \begin{beamercolorbox}[wd=\paperwidth, sep=0mm, leftskip=2mm]{titleBar}
-  \vskip2mm
-  \insertframetitle
-  \ifx\insertframesubtitle\@empty\else\\\usebeamerfont{framesubtitle}\hspace{2mm}\insertframesubtitle \fi
-  \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth, sep=4mm, leftskip=2mm]{titleBar}%
+    \insertframetitle%
+    \hfill
+    \raisebox{-0.8em}{\includegraphics[width=0.2\paperwidth]{umg.jpg}}%
+    \ifx\insertframesubtitle\@empty\else\\\usebeamerfont{framesubtitle}~\insertframesubtitle \fi%
+    \end{beamercolorbox}%
 }
 
 \setbeamertemplate{footline}
 {
   \ifnum\c@framenumber=1
   \else
-  \hbox{
-  \begin{beamercolorbox}[wd=0.08\paperwidth, ht=3.5mm, leftskip=2mm
+  \begin{beamercolorbox}[wd=\paperwidth, ht=3.5mm, leftskip=12.3cm
     ]{framenumber}
     \insertframenumber
   \end{beamercolorbox}
-  \begin{beamercolorbox}[wd=0.92\paperwidth, ht=3.5mm, rightskip=2mm]{footlinebar}
-    {\usebeamercolor[fg]{date}\insertdate \hskip2em}
-    \insertshorttitle, \insertshortauthor, \insertshortinstitute
-    \hfill
-    \umgLogoSmall
-  \end{beamercolorbox}
-  }
-  \vskip1mm
+  \vskip2mm
   \fi
 }
 

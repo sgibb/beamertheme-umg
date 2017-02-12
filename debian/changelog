@@ -1,3 +1,9 @@
+latex-beamer-theme-umg (1.1) UNRELEASED; urgency=medium
+
+  * Update to latest coporate design.
+
+ -- Sebastian Gibb <sgibb.debian@gmail.com>  Sun, 12 Feb 2017 01:02:15 +0100
+
 latex-beamer-theme-umg (1.0) stable; urgency=low
 
   * Initial release

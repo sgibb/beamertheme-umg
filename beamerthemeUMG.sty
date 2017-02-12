@@ -3,7 +3,7 @@
 %
 % based on: Corporate Design der Universitätsmedizin Greifswald 2015
 %
-\ProvidesPackage{beamerthemeUMG}[2017/02/12 1.1 beamer theme for Universitiy Medicine Greifswald]
+\ProvidesPackage{beamerthemeUMG}[2017/02/12 1.2 beamer theme for Universitiy Medicine Greifswald]
 
 \PassOptionsToClass{hyperref={bookmarks,colorlinks}}{beamer}
 \ProcessOptionsBeamer
@@ -90,6 +90,22 @@
      }
 
   \end{picture}
+}
+
+\setbeamertemplate{background canvas}{%
+  % use black background for empty (plain) slides
+  \ifnumequal{\c@framenumber}{1}{%
+    % first frame
+    \color{white}\rule{\paperwidth}{\paperheight}
+  }{%
+    \ifdefempty{\insertframetitle}{%
+      % frame without title (e.g. large images)
+      \color{black}\rule{\paperwidth}{\paperheight}
+    }{%
+      % frame with title
+      \color{white}\rule{\paperwidth}{\paperheight}
+    }%
+  }%
 }
 
 \setbeamertemplate{frametitle}{

@@ -1,4 +1,10 @@
-latex-beamer-theme-umg (1.1) UNRELEASED; urgency=medium
+latex-beamer-theme-umg (1.2) UNRELEASED; urgency=medium
+
+  * Add black background for pages without title.
+
+ -- Sebastian Gibb <sgibb.debian@gmail.com>  Sun, 12 Feb 2017 12:56:46 +0100
+
+latex-beamer-theme-umg (1.1) stable; urgency=medium
 
   * Update to latest coporate design.
 
